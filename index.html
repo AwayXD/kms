@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Media How-To Guide</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      animation: fadeInBody 2s ease-in;
+    }
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      animation: slideDown 1s ease-out;
+    }
+    nav {
+      background-color: #ccc;
+      padding: 10px;
+      text-align: center;
+      animation: fadeInNav 1.5s ease-in;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+    nav a:hover {
+      transform: scale(1.1);
+    }
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    section {
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      color: #003366;
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      animation: fadeInFooter 2s ease-in;
+    }
+    .audio-background {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      z-index: 1000;
+      animation: floatUp 2s ease-in-out;
+    }
+    aside {
+      background-color: #e0f7fa;
+      border-left: 5px solid #00796b;
+      padding: 15px;
+      margin: 20px 0;
+      font-style: italic;
+      animation: fadeInTip 2s ease-in;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeInNav {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInFooter {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeInTip {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Digital Media How-To Guide</h1>
+  </header>
+  <nav>
+    <a href="#documents">Documents</a>
+    <a href="#presentations">Presentations</a>
+    <a href="#websites">Websites</a>
+    <a href="#audio">Audio</a>
+    <a href="#video">Video</a>
+    <a href="#capture">Capture Media</a>
+    <a href="#images">Digital Images</a>
+    <a href="#design">Design Principles</a>
+    <a href="#ethics">Digital Ethics</a>
+  </nav>
+  <main>
+    <aside>
+      💡 <strong>Quick Tip:</strong> Always preview your media on the target platform or device to ensure compatibility and design consistency.
+    </aside>
+    <section id="documents">
+      <h2>Prepare Documents for Publishing</h2>
+      <p>Use word processors or publishing software to format text, insert images, and set layouts. Save in formats suitable for web (PDF, HTML), print (PDF, high-res images), or mobile devices (ePub).</p>
+    </section>
+    <section id="presentations">
+      <h2>Design and Deliver Digital Presentations</h2>
+      <p>Use tools like PowerPoint, Google Slides, or Keynote. Structure your slides, use bullet points, add images and videos, and practice your delivery.</p>
+    </section>
+    <section id="websites">
+      <h2>Build Dynamic Web Pages</h2>
+      <p>Write HTML, CSS, and JavaScript. Use code editors like VS Code. Debug with browser dev tools. Use tools like GitHub Pages or Netlify to publish.</p>
+    </section>
+    <section id="audio">
+      <h2>Edit Audio</h2>
+      <p>Use software like Audacity or Adobe Audition. Trim clips, adjust levels, apply noise reduction, and export in desired formats (MP3, WAV).</p>
+    </section>
+    <section id="video">
+      <h2>Edit Video</h2>
+      <p>Use video editors like DaVinci Resolve, Premiere Pro, or iMovie. Cut scenes, adjust color, add effects and transitions, and export to desired resolution and format.</p>
+    </section>
+    <section id="capture">
+      <h2>Capture Digital Media</h2>
+      <p>Use cameras, smartphones, or microphones. Ensure good lighting and clear audio. Record in appropriate formats (MP4 for video, WAV/MP3 for audio).</p>
+    </section>
+    <section id="images">
+      <h2>Create and Edit Digital Images</h2>
+      <p>Use Photoshop, GIMP, or Canva to crop, resize, adjust color, and add effects. Save in formats like PNG or JPEG based on use case.</p>
+    </section>
+    <section id="design">
+      <h2>Design Principles</h2>
+      <p>Apply contrast, alignment, repetition, and proximity. Use color theory and white space wisely. Ensure typography and layout enhance readability.</p>
+    </section>
+    <section id="ethics">
+      <h2>Digital Ethics and Legal Guidelines</h2>
+      <p>Respect copyright, use royalty-free or licensed media, and give attribution. Understand fair use. Follow community standards and digital etiquette.</p>
+    </section>
+  </main>
+  <div class="audio-background">
+    <iframe width="300" height="80" scrolling="no" frameborder="no" allow="autoplay" 
+      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/djmag/premiere-aroop-roy-talkin-bout-life&color=%23003366&auto_play=true&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false">
+    </iframe>
+  </div>
+  <footer>
+    <p>&copy; 2025 Digital Media Guide</p>
+  </footer>
+  <script>
+    const sections = document.querySelectorAll('main section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
