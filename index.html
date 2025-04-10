@@ -55,6 +55,13 @@
       opacity: 1;
       transform: translateY(0);
     }
+    section img {
+      width: 50%;
+      max-width: 500px;
+      border-radius: 8px;
+      display: block;
+      margin: 10px auto;
+    }
     h2 {
       color: #003366;
     }
@@ -118,67 +125,123 @@
     <a href="#ethics">Digital Ethics</a>
   </nav>
   <main>
+    <img src="images/banner.jpg" alt="Digital Media Banner" style="width:100%; border-radius: 0; margin-bottom: 30px;">
+
     <aside>
       💡 <strong>Quick Tip:</strong> Always preview your media on the target platform or device to ensure compatibility and design consistency.
     </aside>
+
     <section id="documents">
       <h2>Prepare Documents for Publishing</h2>
+      <img src="images/documents.jpg" alt="Documents">
       <p>Use word processors or publishing software to format text, insert images, and set layouts. Save in formats suitable for web (PDF, HTML), print (PDF, high-res images), or mobile devices (ePub).</p>
     </section>
+
     <section id="presentations">
       <h2>Design and Deliver Digital Presentations</h2>
+      <img src="images/presentations.jpg" alt="Presentations">
       <p>Use tools like PowerPoint, Google Slides, or Keynote. Structure your slides, use bullet points, add images and videos, and practice your delivery.</p>
     </section>
+
     <section id="websites">
       <h2>Build Dynamic Web Pages</h2>
       <p>Write HTML, CSS, and JavaScript. Use code editors like VS Code. Debug with browser dev tools. Use tools like GitHub Pages or Netlify to publish.</p>
     </section>
+
     <section id="audio">
       <h2>Edit Audio</h2>
       <p>Use software like Audacity or Adobe Audition. Trim clips, adjust levels, apply noise reduction, and export in desired formats (MP3, WAV).</p>
     </section>
+
     <section id="video">
       <h2>Edit Video</h2>
       <p>Use video editors like DaVinci Resolve, Premiere Pro, or iMovie. Cut scenes, adjust color, add effects and transitions, and export to desired resolution and format.</p>
     </section>
+
     <section id="capture">
       <h2>Capture Digital Media</h2>
       <p>Use cameras, smartphones, or microphones. Ensure good lighting and clear audio. Record in appropriate formats (MP4 for video, WAV/MP3 for audio).</p>
     </section>
+
     <section id="images">
       <h2>Create and Edit Digital Images</h2>
       <p>Use Photoshop, GIMP, or Canva to crop, resize, adjust color, and add effects. Save in formats like PNG or JPEG based on use case.</p>
     </section>
+
     <section id="design">
       <h2>Design Principles</h2>
       <p>Apply contrast, alignment, repetition, and proximity. Use color theory and white space wisely. Ensure typography and layout enhance readability.</p>
     </section>
+
     <section id="ethics">
       <h2>Digital Ethics and Legal Guidelines</h2>
       <p>Respect copyright, use royalty-free or licensed media, and give attribution. Understand fair use. Follow community standards and digital etiquette.</p>
     </section>
+
+    <section id="glitch">
+      <h2>Extras</h2>
+      <button onclick="triggerGlitch()">Click for more info :)</button>
+    </section>
   </main>
+
   <div class="audio-background">
     <iframe width="300" height="80" scrolling="no" frameborder="no" allow="autoplay" 
       src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/djmag/premiere-aroop-roy-talkin-bout-life&color=%23003366&auto_play=true&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false">
     </iframe>
   </div>
-  <footer>
-    <p>&copy; 2025 Digital Media Guide</p>
-  </footer>
-  <script>
-    const sections = document.querySelectorAll('main section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
 
-    sections.forEach(section => {
-      observer.observe(section);
+<footer>
+  <p>&copy; 2025 Digital Media Guide</p>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('main section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
     });
-  </script>
+  }, { threshold: 0.1 });
+  sections.forEach(section => observer.observe(section));
+
+  function triggerGlitch() {
+    let duration = 3000;
+    const originalBg = document.body.style.backgroundColor;
+    const glitchInterval = setInterval(() => {
+      document.body.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+      document.body.style.transform = `rotate(${Math.random() * 2 - 1}deg) translate(${Math.random() * 10}px, ${Math.random() * 10}px)`;
+    }, 100);
+
+    let windowsOpened = 0;
+    const popupInterval = setInterval(() => {
+      if (windowsOpened < 20) {
+        const w = window.open('', '', 'width=200,height=100');
+        if (w) {
+          w.document.write('<p>⚠️ System Alert ⚠️</p>');
+          setTimeout(() => w.close(), 500);
+          windowsOpened++;
+        }
+      } else {
+        clearInterval(popupInterval);
+      }
+    }, 500);
+
+    const beep = new AudioContext();
+    const osc = beep.createOscillator();
+    osc.type = 'square';
+    osc.frequency.setValueAtTime(1000, beep.currentTime);
+    osc.connect(beep.destination);
+    osc.start();
+    setTimeout(() => osc.stop(), duration);
+
+    setTimeout(() => {
+      clearInterval(glitchInterval);
+      clearInterval(popupInterval);
+      document.body.style.backgroundColor = originalBg;
+      document.body.style.transform = '';
+    }, duration);
+  }
+</script>
 </body>
 </html>
